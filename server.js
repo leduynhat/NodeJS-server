@@ -27,9 +27,10 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const { process } = require("ipaddr.js");
 const app = express();
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
   console.log("Application started and Listening on port 3000");
 });
 
@@ -43,8 +44,8 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.post("/", (req, res) => {
-  var subName = req.body.yourname
-  var subEmail = req.body.youremail;
-  res.send("Hello " + subName + ", Thank you for subcribing. You email is " + subEmail);
-});
+// app.post("/", (req, res) => {
+//   var subName = req.body.yourname
+//   var subEmail = req.body.youremail;
+//   res.send("Hello " + subName + ", Thank you for subcribing. You email is " + subEmail);
+// });
